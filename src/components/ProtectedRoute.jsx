@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 export default function ProtectedRoute() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
-  const baseUrl = "https://task31-backend-sandy.vercel.app/";
+  const baseUrl = "https://task31-backend-pi.vercel.app/";
   const api_version = "api/v1";
   useEffect(() => {
     axios
