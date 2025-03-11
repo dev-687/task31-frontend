@@ -8,13 +8,13 @@ import Cookies from 'js-cookie'
 function Login() {
 const navigate=useNavigate()
 const [formData,setFormData]=useState({email:"",password:""});
-const baseUrl = "https://task31-backend-pi.vercel.app/";
+const baseUrl = "https://task31-backend-pi.vercel.app";
 const api_version = "api/v1";
 
 
 useEffect(() => {
   axios
-    .get(`${baseUrl}/${api_version}/auth`, { withCredentials: true })
+    .get(`${baseUrl}${api_version}/auth`, { withCredentials: true })
     .then((res) => {
       console.log("Auth Response", res.data);
       if (res.data.loggedIn) {
@@ -34,7 +34,7 @@ const handleChange=(e)=>{
 const handleSubmit=async(e)=>{
     e.preventDefault();
     try {
-      const result=await axios.post(`${baseUrl}/${api_version}/login`,formData, {
+      const result=await axios.post(`${baseUrl}${api_version}/login`,formData, {
         withCredentials: true,
         validateStatus: (status) => status < 500,
       })
