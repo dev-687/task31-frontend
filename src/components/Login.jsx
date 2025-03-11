@@ -14,7 +14,9 @@ const api_version = "api/v1";
 
 useEffect(() => {
   axios
-    .get(`${baseUrl}/${api_version}/auth`, { withCredentials: true })
+    .get(`${baseUrl}/${api_version}/auth`, { withCredentials: true ,  headers: {
+      "Content-Type": "application/json",
+    } })
     .then((res) => {
       console.log("Auth Response", res.data);
       if (res.data.loggedIn) {
@@ -36,6 +38,9 @@ const handleSubmit=async(e)=>{
     try {
       const result=await axios.post(`${baseUrl}/${api_version}/login`,formData, {
         withCredentials: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
         validateStatus: (status) => status < 500,
       })
       if (result.status === 200) {

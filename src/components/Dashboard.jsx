@@ -12,7 +12,9 @@ export default function DashboardLayout() {
   const api_version = "api/v1";
   useEffect(() => {
     axios
-      .get(`${baseUrl}/${api_version}/auth`, { withCredentials: true })
+      .get(`${baseUrl}/${api_version}/auth`, { withCredentials: true , headers: {
+        "Content-Type": "application/json",
+      } })
       .then((res) => {
         if (res.status === 201) {
           setUser(res.data.user);
@@ -25,7 +27,9 @@ export default function DashboardLayout() {
         setUser(null);
       });
     axios
-      .get(`${baseUrl}/${api_version}/all_users`, { withCredentials: true })
+      .get(`${baseUrl}/${api_version}/all_users`, { withCredentials: true ,  headers: {
+        "Content-Type": "application/json",
+      } })
       .then((res) => {
         setUsers(res.data.users);
       })
@@ -36,7 +40,10 @@ export default function DashboardLayout() {
 
   const handleLogout = () => {
     axios.post(`${baseUrl}/${api_version}/logout`, {}, {
-      withCredentials: true
+      withCredentials: true ,
+      headers: {
+        "Content-Type": "application/json",
+      }
     })
       .then(() => {
         toast.success("Logged out successfully!", { position: "top-right" });
