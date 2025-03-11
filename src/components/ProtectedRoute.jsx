@@ -9,9 +9,7 @@ export default function ProtectedRoute() {
   const api_version = "api/v1";
   useEffect(() => {
     axios
-      .get(`${baseUrl}/${api_version}/auth`, { withCredentials: true ,  headers: {
-        "Content-Type": "application/json",
-      }
+      .get(`${baseUrl}/${api_version}/auth`, { withCredentials: true 
     })
       .then((res) => {
         if (res.status === 201 && res.data.loggedIn) {
