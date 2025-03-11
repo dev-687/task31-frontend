@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function Register() {
   const navigate=useNavigate(null)
   const [formData, setFormData] = useState({ username: "", email: "", password: "" });
-  const baseUrl = "https://task31-backend-pi.vercel.app/";
+  const baseUrl = "https://task31-backend-pi.vercel.app";
   const api_version = "api/v1";
   const handleChange = (e) => {
     e.preventDefault();
