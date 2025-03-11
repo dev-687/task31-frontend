@@ -20,8 +20,8 @@ export default function ProtectedRoute() {
           throw new Error("Unauthorized");
         }
       })
-      .catch(() => {
-        toast.error("Protected URL! Please Login!", { position: "top-right" });
+      .catch((err) => {
+        toast.error(err, { position: "top-right" });
         setIsAuthenticated(false);
       });
   }, []);
