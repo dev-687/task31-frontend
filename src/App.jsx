@@ -7,7 +7,7 @@ import  Welcome  from "./components/Welcome";
 
 function App() {
   return (
-    <Router>
+    
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
@@ -17,7 +17,7 @@ function App() {
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </Router>
+    
   );
 }
 
